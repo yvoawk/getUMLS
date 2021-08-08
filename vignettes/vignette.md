@@ -6,6 +6,7 @@ Yvon K. AWUKLU
 ``` r
 library(getUMLS)
 ```
+For use this package, you will need an UMLS license. For more information, please see https://www.nlm.nih.gov/research/umls/.
 
 ## 1. Authentication : UMLS TICKET-GRANT TICKET
 
