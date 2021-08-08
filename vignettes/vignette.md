@@ -6,7 +6,7 @@ Yvon K. AWUKLU
 ``` r
 library(getUMLS)
 ```
-For use this package, you will need an UMLS license. For more information, please see https://www.nlm.nih.gov/research/umls/.
+For use this package, you will need an <span style="color: red">UMLS license</span>. For more information, please see https://www.nlm.nih.gov/research/umls/.
 
 ## 1. Authentication : UMLS TICKET-GRANT TICKET
 
@@ -135,10 +135,10 @@ vocabulary). You can consult the allowed vocabularies on:
 ## 8. Hierarchical information
 
 This function provides you a way to retrieve a hierarchical information
-about a known source-asserted identifier. You can : \* Retrieve the
-immediate parents of a known source asserted identifier. \* Retrieve all
-immediate children of a known source asserted identifier. \* Retrieve
-all ancestors or descendants of a known source asserted identifier.
+about a known source-asserted identifier. You can : 
+* Retrieve the immediate parents of a known source asserted identifier. 
+* Retrieve all immediate children of a known source asserted identifier. 
+* Retrieve all ancestors or descendants of a known source asserted identifier.
 
 ``` r
 # getUMLS::hierarchyfromSource(TGT = TGT, vocabulary = "ICD10", Id = "J45", type = "children")
