@@ -1,0 +1,24 @@
+Package: getUMLS
+Title: Query the UMLS metathesaurus
+Version: 0.1.0
+Date: 2021-08-06
+Authors@R: 
+    person(given = "Yvon K.",
+           family = "AWUKLU",
+           role = c("aut", "cre"),
+           email = "yvo.awk13@gmail.com",
+           comment = c(ORCID = "0000-0002-0196-5950"))
+Maintainer: Yvon K. <yvo.awk13@gmail.com>
+Description: This package is a wrapper of UMLS API. It's help query UMLS with R.
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.1
+Imports: 
+    magrittr,
+    dplyr,
+    httr,
+    stringr,
+    jsonlite,
+    rvest
