@@ -18,6 +18,13 @@
 }
 
 #' @importFrom stringr str_detect
+.checkST <- function(ST) {
+  if (!stringr::str_detect(ST, "^ST[-]\\d+[-][:alnum:]+[-]cas$")) {
+    stop("Your ticket has expired")
+  }
+}
+
+#' @importFrom stringr str_detect
 .checkCUI <- function(CUI) {
   if (!is.character(CUI) ||
     !stringr::str_detect(
@@ -84,4 +91,22 @@
   return(c(vec1, vec2))
 }
 
-utils::globalVariables(c(".", "id", "ui", "relatedIdName", "rootSource"))
+#' @importFrom httr GET
+#' @importFrom jsonlite fromJSON
+#' @importFrom magrittr %>%
+getUMLS <- function(url, query) {
+  get <- httr::GET(url = url, query = query, encode = "json")
+  response <- rawToChar(get$content) %>% jsonlite::fromJSON() %>% .[["result"]]
+  return(response)
+}
+
+#' @importFrom httr GET
+#' @importFrom jsonlite fromJSON
+#' @importFrom magrittr %>% %$%
+getUMLS2 <- function(url, query) {
+  get <- httr::GET(url = url, query = query, encode = "json")
+  response <- rawToChar(get$content) %>% jsonlite::fromJSON() %$% .$result$results$ui
+  return(response)
+}
+
+utils::globalVariables(c(".", "id", "ui", "relatedIdName", "rootSource", "name", "termType"))
