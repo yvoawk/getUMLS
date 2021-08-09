@@ -7,9 +7,6 @@
 #' @param ENG The default is TRUE. We recommend put it to FALSE when the search term is not in English.
 #'
 #' @return A UMLS Concept Unique Identifier (CUI).
-#' @importFrom magrittr %>% %$%
-#' @importFrom httr GET
-#' @importFrom jsonlite fromJSON
 #' @export
 CUIfromString <- function(TGT, String, ENG = TRUE) {
   .checkString(String)
@@ -19,6 +16,7 @@ CUIfromString <- function(TGT, String, ENG = TRUE) {
     lang <- "exact"
   }
   ST <- .service_pass(TGT)
+  .checkST(ST)
 
   url <- "https://uts-ws.nlm.nih.gov/rest/search/current"
   query <-
@@ -27,9 +25,7 @@ CUIfromString <- function(TGT, String, ENG = TRUE) {
       "string" = String,
       "searchType" = lang
     )
-  . <- NULL
-  query <- httr::GET(url = url, query = query, encode = "json")
-  response <- rawToChar(query$content) %>% jsonlite::fromJSON() %$% .$result$results$ui
+  response <- getUMLS2(url, query)
 
   if (response == "NONE") {
     response <- NA

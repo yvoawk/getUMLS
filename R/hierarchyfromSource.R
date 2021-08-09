@@ -8,22 +8,17 @@
 #' @param type The type of hierarchy e.g. "parents", "children", "ancestors" or "descendants". By default, it is "descendants".
 #'
 #' @return A data frame
-#' @importFrom magrittr %>%
-#' @importFrom httr GET
-#' @importFrom jsonlite fromJSON
 #' @importFrom dplyr tibble
 #' @export
 hierarchyfromSource <- function(TGT, vocabulary, Id, type = "descendants") {
   .checkVocabulary(vocabulary)
   .checkType(type)
   ST <- .service_pass(TGT)
+  .checkST(ST)
 
   url <- paste0("https://uts-ws.nlm.nih.gov/rest/content/current/source/", vocabulary, "/", Id, "/", type)
   query <- list("ticket" = ST)
-  query <- httr::GET(url = url, query = query, encode = "json")
-  response <- rawToChar(query$content) %>%
-    jsonlite::fromJSON() %>%
-    .[["result"]]
+  response <- getUMLS(url, query)
 
   if (isTRUE(response)) {
     response <- dplyr::tibble(result = NA)

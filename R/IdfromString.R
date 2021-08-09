@@ -9,9 +9,6 @@
 #' @param ENG The default is TRUE. We recommend put it to FALSE when the search term is not in English.
 #'
 #' @return A source-asserted identifier (codes).
-#' @importFrom magrittr %>% %$%
-#' @importFrom httr GET
-#' @importFrom jsonlite fromJSON
 #' @export
 IdfromString <- function(TGT, String, vocabulary, ENG = TRUE) {
   .checkString(String)
@@ -22,6 +19,7 @@ IdfromString <- function(TGT, String, vocabulary, ENG = TRUE) {
     lang <- "exact"
   }
   ST <- .service_pass(TGT)
+  .checkST(ST)
 
   url <- "https://uts-ws.nlm.nih.gov/rest/search/current"
   query <-
@@ -32,9 +30,7 @@ IdfromString <- function(TGT, String, vocabulary, ENG = TRUE) {
       "returnIdType" = "code",
       "searchType" = lang
     )
-
-  query <- httr::GET(url = url, query = query, encode = "json")
-  response <- rawToChar(query$content) %>% jsonlite::fromJSON() %$% .$result$results$ui
+  response <- getUMLS2(url, query)
 
   if (response == "NONE") {
     response <- NA

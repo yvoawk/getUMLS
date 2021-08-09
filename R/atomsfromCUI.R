@@ -11,13 +11,12 @@
 #' @param pageSize The default is NULL and returns 25 pages. pageSize is a number.
 #'
 #' @return A data frame.
-#' @importFrom magrittr %>% %<>%
-#' @importFrom httr GET
-#' @importFrom jsonlite fromJSON
+#' @importFrom magrittr %<>%
 #' @importFrom dplyr select tibble
 #' @export
 atomsfromCUI <- function(TGT, CUI, vocabulary = NULL, language = NULL, pageSize = NULL) {
   ST <- .service_pass(TGT)
+  .checkST(ST)
   query <- list("ticket" = ST)
   .checkCUI(CUI)
 
@@ -37,10 +36,7 @@ atomsfromCUI <- function(TGT, CUI, vocabulary = NULL, language = NULL, pageSize 
   }
 
   url <- paste0("https://uts-ws.nlm.nih.gov/rest/content/current/CUI/", CUI, "/atoms")
-  query <- httr::GET(url = url, query = query, encode = "json")
-  response <- rawToChar(query$content) %>%
-    jsonlite::fromJSON() %>%
-    .[["result"]]
+  response <- getUMLS(url, query)
 
   if (is.null(response)) {
     response <- dplyr::tibble(
@@ -58,7 +54,6 @@ atomsfromCUI <- function(TGT, CUI, vocabulary = NULL, language = NULL, pageSize 
           substr(x, y[1] + 1, y[2])
         }
       )
-    id <- name <- rootSource <- termType <- NULL
     response %<>% dplyr::select(name, termType, rootSource, id)
   }
   return(response)

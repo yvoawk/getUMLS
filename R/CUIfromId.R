@@ -6,13 +6,11 @@
 #' @param Id Source-asserted identifier.
 #' @param vocabulary Any root source abbreviation in the UMLS. See the “Abbreviation” column for a list of UMLS source vocabulary abbreviations.
 #' @return A UMLS Concept Unique Identifier (CUI).
-#' @importFrom magrittr %>% %$%
-#' @importFrom httr GET
-#' @importFrom jsonlite fromJSON
 #' @export
 CUIfromId <- function(TGT, Id, vocabulary) {
   .checkVocabulary(vocabulary)
   ST <- .service_pass(TGT)
+  .checkST(ST)
 
   url <- "https://uts-ws.nlm.nih.gov/rest/search/current"
   query <-
@@ -24,8 +22,7 @@ CUIfromId <- function(TGT, Id, vocabulary) {
       "searchType" = "exact"
     )
 
-  query <- httr::GET(url = url, query = query, encode = "json")
-  response <- rawToChar(query$content) %>% jsonlite::fromJSON() %$% .$result$results$ui
+  response <- getUMLS2(url, query)
 
   if (response == "NONE") {
     response <- NA

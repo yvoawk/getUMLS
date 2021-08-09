@@ -7,21 +7,16 @@
 #'
 #' @return a data frame
 #' @importFrom magrittr %>% %<>%
-#' @importFrom httr GET
-#' @importFrom jsonlite fromJSON
 #' @importFrom dplyr select tibble
 #' @export
 fromCUI <- function(TGT, CUI) {
   .checkCUI(CUI)
   ST <- .service_pass(TGT)
+  .checkST(ST)
 
   query <- list("ticket" = ST)
   url <- paste0("https://uts-ws.nlm.nih.gov/rest/content/current/CUI/", CUI)
-
-  query <- httr::GET(url = url, query = query, encode = "json")
-  response <- rawToChar(query$content) %>%
-    jsonlite::fromJSON() %>%
-    .[["result"]]
+  response <- getUMLS(url, query)
 
   if (is.null(response)) {
     response <- dplyr::tibble(
