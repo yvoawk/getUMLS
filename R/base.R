@@ -30,7 +30,6 @@
 
 #' @importFrom utils read.delim2
 .checkVocabulary <- function(vocabulary) {
-  vocab <- utils::read.delim2("./inst/vocabulary.tsv", sep = "\t", stringsAsFactors = FALSE, encoding = "UTF-8")$Abbreviation
   if (!is.character(vocabulary) ||
     !vocabulary %in% vocab) {
     stop("vocabulary must be a character or vocabulary is not valid")
