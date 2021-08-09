@@ -6,13 +6,12 @@ Yvon K. AWUKLU
 ``` r
 library(getUMLS)
 ```
-For use this package, you will need an <span style="color: red">UMLS license</span>. For more information, please see https://www.nlm.nih.gov/research/umls/.
-
+For use this package, you will need an <span style="color: red">UMLS license</span>. If you do not have a UMLS account, you may apply for a license on the [UMLS Terminology Services (UTS) website](https://uts.nlm.nih.gov/).
 ## 1. Authentication : UMLS TICKET-GRANT TICKET
 
 First, you need to authentify yourself in order to have access to UMLS
 REST API. This function help you to do that and obtain a Ticket-Grant
-Ticket (TGT). It receives in argument the **apikey** received by UMLS.
+Ticket (TGT). It receives in argument the **apikey** received by UMLS. The TGT is valid for **8 hours**. You do not need a new TGT for each REST API call.
 
 ``` r
 TGT <- getUMLS::umls_pass(apikey = YOUR_API_KEY)
