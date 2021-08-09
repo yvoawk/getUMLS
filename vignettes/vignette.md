@@ -33,7 +33,7 @@ getUMLS::fromCUI(TGT = TGT, CUI = "C0018689")
     ##   <chr>                    <chr>   <chr>   <chr>             <int>         <int>
     ## 1 Health Care (MeSH Categ… Concept C00186… Classificati…         1             2
 
-## 2. Atoms et Information
+## 3. Atoms et Information
 
 This function provides you a way to retrieve atoms and information about
 atoms for a known CUI. It receives in argument the **TGT**, a **CUI**, a
@@ -48,7 +48,7 @@ getUMLS::atomsfromCUI(TGT = TGT, CUI = "C0018689")
     ##                          name termType rootSource      id
     ## 1 Health Care (MeSH Category)       HT        MSH U000008
 
-## 3. CUI Definition
+## 4. CUI Definition
 
 This function provides you a way to retrieve the source-asserted
 definitions for a known CUI. It receives in argument the **TGT** and a
@@ -67,7 +67,7 @@ getUMLS::defromCUI(TGT = TGT, CUI = "C0155502")
     ## 2 VERTIGEM idiopática recorrente associada com NISTAGMO FISIOLÓGICO. Está associada com uma perda vestibular sem outros sinais neurológicos ou auditivos. Diferentemente da LABIRINTITE e da NEURONITE VESTIBULAR, não se observa inflamação na ouvido.
     ## 3                                                        Idiopatické rekurentní vertigo spojené s polohovým nystagmem. Je způsobené poruchou vestibulárního aparátu. Na rozdíl od labyrintitidy a vestibulární neuronitidy se neprojevuje zánětem ucha.
 
-## 4. CUI Relation
+## 5. CUI Relation
 
 This function provides you a way to retrieve the NLM-asserted
 relationships for a known CUI. It receives in argument the **TGT**, a
@@ -96,7 +96,7 @@ getUMLS::relfromCUI(TGT = TGT, CUI = "C0155502")
     ## 7        MTH R03266972
     ## 8        MTH R91960384
 
-## 5. ID from String
+## 6. ID from String
 
 This function provides you a way to retrieve a source-asserted
 identifiers (**codes**) associate with a search term (**string**) in
@@ -110,7 +110,7 @@ getUMLS::IdfromString(TGT = TGT, String = "bone fracture", vocabulary = "MSH")
 
     ## [1] "D050723"
 
-## 6. CUI from String
+## 7. CUI from String
 
 This function provides you a way to retrieve a UMLS Concept Unique
 Identifier (**CUI**) associate with a search term (**string**).
@@ -121,7 +121,7 @@ getUMLS::CUIfromString(TGT = TGT, String = "bone fracture")
 
     ## [1] "C0016658"
 
-## 7. CUI from another source-asserted identifier
+## 8. CUI from another source-asserted identifier
 
 This function provides you a way to retrieve a UMLS Concept Unique
 Identifier (**CUI**) associate with a specific source-asserted
@@ -136,7 +136,7 @@ getUMLS::CUIfromId(TGT = TGT, Id = "J45", vocabulary = "ICD10")
 
     ## [1] "C0004096"
 
-## 8. Hierarchical information
+## 9. Hierarchical information
 
 This function provides you a way to retrieve a hierarchical information
 about a known source-asserted identifier. You can : 
