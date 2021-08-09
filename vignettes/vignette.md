@@ -105,8 +105,10 @@ vocabularies on:
 [vocabulary](https://www.nlm.nih.gov/research/umls/sourcereleasedocs/index.html).
 
 ``` r
-# getUMLS::IdfromString(TGT = TGT, String = "bone fracture", vocabulary = "MSH")
+getUMLS::IdfromString(TGT = TGT, String = "bone fracture", vocabulary = "MSH")
 ```
+
+    ## [1] "D050723"
 
 ## 6. CUI from String
 
@@ -129,8 +131,10 @@ vocabulary). You can consult the allowed vocabularies on:
 [vocabulary](https://www.nlm.nih.gov/research/umls/sourcereleasedocs/index.html).
 
 ``` r
-# getUMLS::CUIfromId(TGT = TGT, Id = "J45", vocabulary = "ICD10")
+getUMLS::CUIfromId(TGT = TGT, Id = "J45", vocabulary = "ICD10")
 ```
+
+    ## [1] "C0004096"
 
 ## 8. Hierarchical information
 
@@ -141,8 +145,14 @@ about a known source-asserted identifier. You can :
 * Retrieve all ancestors or descendants of a known source asserted identifier.
 
 ``` r
-# getUMLS::hierarchyfromSource(TGT = TGT, vocabulary = "ICD10", Id = "J45", type = "children")
+getUMLS::hierarchyfromSource(TGT = TGT, vocabulary = "ICD10", Id = "J45", type = "children")
 ```
+
+    ## result                                            
+    ## 1 Asthma, unspecified          
+    ## 2 Predominantly allergic asthma
+    ## 3 Nonallergic asthma           
+    ## 4 Mixed asthma  
 
 ## Reference
 
