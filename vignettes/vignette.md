@@ -140,9 +140,9 @@ getUMLS::CUIfromId(Id = "J45", vocabulary = "ICD10")
 
 This function provides you a way to retrieve a hierarchical information
 about a known source-asserted identifier. You can : 
-* Retrieve the immediate parents of a known source asserted identifier. 
-* Retrieve all immediate children of a known source asserted identifier. 
-* Retrieve all ancestors or descendants of a known source asserted identifier.
+> * Retrieve the immediate parents of a known source asserted identifier. 
+> * Retrieve all immediate children of a known source asserted identifier. 
+> * Retrieve all ancestors or descendants of a known source asserted identifier.
 
 ``` r
 getUMLS::hierarchyfromSource(vocabulary = "ICD10", Id = "J45", type = "children")
