@@ -1,4 +1,4 @@
-How to use getUMLS
+How to use {getUMLS} ?
 ================
 Yvon K. AWUKLU
 2021-08-07
