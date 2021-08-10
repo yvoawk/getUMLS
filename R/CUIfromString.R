@@ -6,6 +6,8 @@
 #' @param ENG The default is TRUE. We recommend put it to FALSE when the search term is not in English.
 #'
 #' @return A UMLS Concept Unique Identifier (CUI).
+#' #' @examples
+#' \dontrun{cui <- CUIfromString(String = "bone fracture")}
 #' @export
 CUIfromString <- function(String, ENG = TRUE) {
   .checkString(String)

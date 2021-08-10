@@ -6,6 +6,8 @@
 #' @param pageSize The default is NULL and returns 25 pages. pageSize is a number.
 #'
 #' @return A data frame
+#' #' @examples
+#' \dontrun{relation <- relfromCUI(CUI = "C0155502")}
 #' @importFrom magrittr %<>%
 #' @importFrom dplyr tibble select
 #' @export

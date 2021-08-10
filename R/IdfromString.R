@@ -8,6 +8,8 @@
 #' @param ENG The default is TRUE. We recommend put it to FALSE when the search term is not in English.
 #'
 #' @return A source-asserted identifier (codes).
+#' #' @examples
+#' \dontrun{Id <- IdfromString(String = "bone fracture", vocabulary = "MSH")}
 #' @export
 IdfromString <- function(String, vocabulary, ENG = TRUE) {
   .checkString(String)

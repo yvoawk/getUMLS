@@ -5,6 +5,8 @@
 #' @param Id Source-asserted identifier.
 #' @param vocabulary Any root source abbreviation in the UMLS. See the “Abbreviation” column for a list of UMLS source vocabulary abbreviations.
 #' @return A UMLS Concept Unique Identifier (CUI).
+#' #' @examples
+#' \dontrun{cui <- CUIfromId(Id = "J45", vocabulary = "ICD10")}
 #' @export
 CUIfromId <- function(Id, vocabulary) {
   .checkVocabulary(vocabulary)

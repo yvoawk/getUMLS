@@ -5,6 +5,8 @@
 #' @param CUI UMLS Concept Unique Identifier.
 #'
 #' @return a data frame
+#' #' @examples
+#' \dontrun{x <- fromCUI(CUI = "C0018689")}
 #' @importFrom magrittr %>% %<>%
 #' @importFrom dplyr select tibble
 #' @export

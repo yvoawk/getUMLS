@@ -5,6 +5,8 @@
 #' @param CUI UMLS Concept Unique Identifier.
 #'
 #' @return A data frame.
+#' #' @examples
+#' \dontrun{defintion <- defromUI(CUI = "C0155502")}
 #' @importFrom dplyr tibble
 #' @export
 defromCUI <- function(CUI) {

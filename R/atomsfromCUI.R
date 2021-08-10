@@ -10,6 +10,8 @@
 #' @param pageSize The default is NULL and returns 25 pages. pageSize is a number.
 #'
 #' @return A data frame.
+#' @examples
+#' \dontrun{atom <- atomsfromCUI(CUI = "C0018689")}
 #' @importFrom magrittr %<>%
 #' @importFrom dplyr select tibble
 #' @export

@@ -7,6 +7,8 @@
 #' @param type The type of hierarchy e.g. "parents", "children", "ancestors" or "descendants". By default, it is "descendants".
 #'
 #' @return A data frame
+#' #' @examples
+#' \dontrun{hierarchy <- hierarchyfromSource(vocabulary = "ICD10", Id = "J45", type = "children")}
 #' @importFrom dplyr tibble
 #' @export
 hierarchyfromSource <- function(vocabulary, Id, type = "descendants") {

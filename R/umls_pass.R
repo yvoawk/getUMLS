@@ -5,6 +5,8 @@
 #' @importFrom magrittr %>%
 #' @importFrom httr POST
 #' @importFrom stringr str_extract
+#' @examples
+#' \dontrun{umls_pass(apikey = "your apikey")}
 #' @export
 umls_pass <- function(apikey) {
   .checkApikey(apikey)
