@@ -12,7 +12,7 @@
 #' @importFrom stringr str_detect
 .checkTGT <- function(TGT) {
   if (stringr::str_detect(TGT, "^TGT[-]\\d+[-][:alnum:]+[-]cas$")) {
-    message("Authentication was successful. This gives you access for 8 hours")
+    message("Authentication was successful. This gives you access for 8 hours.")
   } else {
     stop("Authentication failed")
   }
