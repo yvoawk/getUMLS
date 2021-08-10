@@ -1,3 +1,10 @@
+
+#' @export
+.apikey <- function() {
+    key
+  return(key)
+}
+
 #' @importFrom stringr str_detect
 .checkApikey <- function(apikey) {
   if (!is.character(apikey) ||
@@ -12,7 +19,7 @@
 #' @importFrom stringr str_detect
 .checkTGT <- function(TGT) {
   if (stringr::str_detect(TGT, "^TGT[-]\\d+[-][:alnum:]+[-]cas$")) {
-    message("Authentication was successful. This gives you access for 8 hours.")
+    message("Authentication was successful. This gives you access for 8 hours")
   } else {
     stop("Authentication failed")
   }
@@ -80,7 +87,20 @@
       encode = "form"
     )
   ST <- rawToChar(query$content)
+  .checkST(ST)
   return(ST)
+}
+
+#' @export
+#' @importFrom rvest read_html html_nodes html_table
+.loadVocabulary <- function() {
+  url <- "https://www.nlm.nih.gov/research/umls/sourcereleasedocs/index.html"
+  umls <- rvest::read_html(url)
+  table <- umls %>%
+    rvest::html_nodes(xpath = '//*[@id="example"]') %>%
+    rvest::html_table() %>%
+    .[[1]]
+  return(table)
 }
 
 .detect <- function(String) {

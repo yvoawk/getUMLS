@@ -12,7 +12,6 @@
 defromCUI <- function(CUI) {
   TGT <- getumls_env$TGT
   ST <- .service_pass(TGT)
-  .checkST(ST)
   .checkCUI(CUI)
   query <- list("ticket" = ST)
 

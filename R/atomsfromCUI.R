@@ -18,7 +18,6 @@
 atomsfromCUI <- function(CUI, vocabulary = NULL, language = NULL, pageSize = NULL) {
   TGT <- getumls_env$TGT
   ST <- .service_pass(TGT)
-  .checkST(ST)
   query <- list("ticket" = ST)
   .checkCUI(CUI)
 

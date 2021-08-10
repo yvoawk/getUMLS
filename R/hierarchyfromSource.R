@@ -16,7 +16,6 @@ hierarchyfromSource <- function(vocabulary, Id, type = "descendants") {
   .checkType(type)
   TGT <- getumls_env$TGT
   ST <- .service_pass(TGT)
-  .checkST(ST)
 
   url <- paste0("https://uts-ws.nlm.nih.gov/rest/content/current/source/", vocabulary, "/", Id, "/", type)
   query <- list("ticket" = ST)

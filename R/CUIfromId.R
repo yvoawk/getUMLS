@@ -12,7 +12,6 @@ CUIfromId <- function(Id, vocabulary) {
   .checkVocabulary(vocabulary)
   TGT <- getumls_env$TGT
   ST <- .service_pass(TGT)
-  .checkST(ST)
 
   url <- "https://uts-ws.nlm.nih.gov/rest/search/current"
   query <-

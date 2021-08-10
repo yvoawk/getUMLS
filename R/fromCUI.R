@@ -14,7 +14,6 @@ fromCUI <- function(CUI) {
   .checkCUI(CUI)
   TGT <- getumls_env$TGT
   ST <- .service_pass(TGT)
-  .checkST(ST)
 
   query <- list("ticket" = ST)
   url <- paste0("https://uts-ws.nlm.nih.gov/rest/content/current/CUI/", CUI)
