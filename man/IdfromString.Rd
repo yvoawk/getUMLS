@@ -4,11 +4,9 @@
 \alias{IdfromString}
 \title{Retrieving source-asserted identifiers}
 \usage{
-IdfromString(TGT, String, vocabulary, ENG = TRUE)
+IdfromString(String, vocabulary, ENG = TRUE)
 }
 \arguments{
-\item{TGT}{UMLS ticket-grant ticket.}
-
 \item{String}{The search term.}
 
 \item{vocabulary}{It takes any root source abbreviation in the UMLS. See the “Abbreviation” column for a list of UMLS source vocabulary abbreviations.

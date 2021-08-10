@@ -2,7 +2,6 @@
 #' @description
 #' This function help to retrieve the NLM-asserted relationships for a known CUI.
 #'
-#' @param TGT UMLS ticket-grant ticket
 #' @param CUI UMLS Concept Unique Identifier
 #' @param pageSize The default is NULL and returns 25 pages. pageSize is a number.
 #'
@@ -10,7 +9,8 @@
 #' @importFrom magrittr %<>%
 #' @importFrom dplyr tibble select
 #' @export
-relfromCUI <- function(TGT, CUI, pageSize = NULL) {
+relfromCUI <- function(CUI, pageSize = NULL) {
+  TGT <- getumls_env$TGT
   ST <- .service_pass(TGT)
   .checkST(ST)
   .checkCUI(CUI)

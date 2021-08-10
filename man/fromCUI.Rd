@@ -4,11 +4,9 @@
 \alias{fromCUI}
 \title{Information about CUI}
 \usage{
-fromCUI(TGT, CUI)
+fromCUI(CUI)
 }
 \arguments{
-\item{TGT}{Ticket-grant ticket, obtain with the umls_pass function.}
-
 \item{CUI}{UMLS Concept Unique Identifier.}
 }
 \value{

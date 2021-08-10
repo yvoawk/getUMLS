@@ -4,11 +4,9 @@
 \alias{atomsfromCUI}
 \title{Retrieving UMLS Atoms}
 \usage{
-atomsfromCUI(TGT, CUI, vocabulary = NULL, language = NULL, pageSize = NULL)
+atomsfromCUI(CUI, vocabulary = NULL, language = NULL, pageSize = NULL)
 }
 \arguments{
-\item{TGT}{UMLS ticket-grant ticket}
-
 \item{CUI}{UMLS Concept Unique Identifier}
 
 \item{vocabulary}{The default is NULL and returns all vocabularies. It takes any root source abbreviation in the UMLS. See the “Abbreviation” column for a list of UMLS source vocabulary abbreviations.

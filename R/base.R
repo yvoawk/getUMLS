@@ -1,4 +1,3 @@
-
 #' @importFrom stringr str_detect
 .checkApikey <- function(apikey) {
   if (!is.character(apikey) ||
@@ -12,15 +11,17 @@
 
 #' @importFrom stringr str_detect
 .checkTGT <- function(TGT) {
-  if (!stringr::str_detect(TGT, "^TGT.*cas$")) {
-    stop("ticket has expired or is not valid")
+  if (stringr::str_detect(TGT, "^TGT[-]\\d+[-][:alnum:]+[-]cas$")) {
+    message("Authentication was successful. This gives you access for 8 hours")
+  } else {
+    stop("Authentication failed")
   }
 }
 
 #' @importFrom stringr str_detect
 .checkST <- function(ST) {
   if (!stringr::str_detect(ST, "^ST[-]\\d+[-][:alnum:]+[-]cas$")) {
-    stop("Your ticket has expired")
+    stop("Your session has expired. Please get another session with the umls_pass function")
   }
 }
 
@@ -71,7 +72,6 @@
 
 #' @importFrom httr POST
 .service_pass <- function(TGT) {
-  .checkTGT(TGT)
   url <- paste0("https://utslogin.nlm.nih.gov/cas/v1/tickets/", TGT)
   query <-
     httr::POST(
@@ -108,5 +108,7 @@ getUMLS2 <- function(url, query) {
   response <- rawToChar(get$content) %>% jsonlite::fromJSON() %$% .$result$results$ui
   return(response)
 }
+
+getumls_env <- new.env(parent = emptyenv())
 
 utils::globalVariables(c(".", "id", "ui", "relatedIdName", "rootSource", "name", "termType"))

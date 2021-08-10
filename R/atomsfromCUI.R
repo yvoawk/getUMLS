@@ -2,7 +2,6 @@
 #' @description
 #' This function help to retrieve atoms and information about atoms for a known CUI.
 #'
-#' @param TGT UMLS ticket-grant ticket
 #' @param CUI UMLS Concept Unique Identifier
 #' @param vocabulary The default is NULL and returns all vocabularies. It takes any root source abbreviation in the UMLS. See the “Abbreviation” column for a list of UMLS source vocabulary abbreviations.
 #' Currently filtering by one vocabulary is supported.
@@ -14,7 +13,8 @@
 #' @importFrom magrittr %<>%
 #' @importFrom dplyr select tibble
 #' @export
-atomsfromCUI <- function(TGT, CUI, vocabulary = NULL, language = NULL, pageSize = NULL) {
+atomsfromCUI <- function(CUI, vocabulary = NULL, language = NULL, pageSize = NULL) {
+  TGT <- getumls_env$TGT
   ST <- .service_pass(TGT)
   .checkST(ST)
   query <- list("ticket" = ST)

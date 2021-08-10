@@ -4,11 +4,9 @@
 \alias{defromCUI}
 \title{Retrieving UMLS Concept Definitions}
 \usage{
-defromCUI(TGT, CUI)
+defromCUI(CUI)
 }
 \arguments{
-\item{TGT}{UMLS ticket-grant ticket.}
-
 \item{CUI}{UMLS Concept Unique Identifier.}
 }
 \value{

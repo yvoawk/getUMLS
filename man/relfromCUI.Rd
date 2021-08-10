@@ -4,11 +4,9 @@
 \alias{relfromCUI}
 \title{Retrieving UMLS Concept Relations}
 \usage{
-relfromCUI(TGT, CUI, pageSize = NULL)
+relfromCUI(CUI, pageSize = NULL)
 }
 \arguments{
-\item{TGT}{UMLS ticket-grant ticket}
-
 \item{CUI}{UMLS Concept Unique Identifier}
 
 \item{pageSize}{The default is NULL and returns 25 pages. pageSize is a number.}

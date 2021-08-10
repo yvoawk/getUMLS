@@ -1,4 +1,3 @@
-
 #' @title Obtain TGT
 #' @description Function to get UMLS Ticket-Grant Ticket.
 #'
@@ -9,7 +8,6 @@
 #' @export
 umls_pass <- function(apikey) {
   .checkApikey(apikey)
-
   url <- "https://utslogin.nlm.nih.gov/cas/v1/api-key"
   query <-
     httr::POST(
@@ -18,5 +16,6 @@ umls_pass <- function(apikey) {
       encode = "form"
     )
   TGT <- query$headers$location %>% stringr::str_extract("TGT.*")
-  return(TGT)
+  .checkTGT(TGT)
+  getumls_env$TGT <- TGT
 }

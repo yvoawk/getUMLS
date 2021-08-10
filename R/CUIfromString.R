@@ -2,19 +2,19 @@
 #' @description
 #' This function help to retrieve a UMLS Concept Unique Identifier (CUI) associate with a search term (string).
 #'
-#' @param TGT UMLS ticket-grant ticket.
 #' @param String The search term.
 #' @param ENG The default is TRUE. We recommend put it to FALSE when the search term is not in English.
 #'
 #' @return A UMLS Concept Unique Identifier (CUI).
 #' @export
-CUIfromString <- function(TGT, String, ENG = TRUE) {
+CUIfromString <- function(String, ENG = TRUE) {
   .checkString(String)
   if (isTRUE(ENG)) {
     lang <- "normalizedString"
   } else {
     lang <- "exact"
   }
+  TGT <- getumls_env$TGT
   ST <- .service_pass(TGT)
   .checkST(ST)
 

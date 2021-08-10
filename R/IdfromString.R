@@ -2,7 +2,6 @@
 #' @description
 #' This function help to retrieve a source-asserted identifiers (codes) associate with a search term (string) in UMLS specific source vocabulary.
 #'
-#' @param TGT UMLS ticket-grant ticket.
 #' @param String The search term.
 #' @param vocabulary It takes any root source abbreviation in the UMLS. See the “Abbreviation” column for a list of UMLS source vocabulary abbreviations.
 #' Currently searching for one source vocabulary at the time.
@@ -10,7 +9,7 @@
 #'
 #' @return A source-asserted identifier (codes).
 #' @export
-IdfromString <- function(TGT, String, vocabulary, ENG = TRUE) {
+IdfromString <- function(String, vocabulary, ENG = TRUE) {
   .checkString(String)
   .checkVocabulary(vocabulary)
   if (isTRUE(ENG)) {
@@ -18,6 +17,7 @@ IdfromString <- function(TGT, String, vocabulary, ENG = TRUE) {
   } else {
     lang <- "exact"
   }
+  TGT <- getumls_env$TGT
   ST <- .service_pass(TGT)
   .checkST(ST)
 

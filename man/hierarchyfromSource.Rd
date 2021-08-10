@@ -4,11 +4,9 @@
 \alias{hierarchyfromSource}
 \title{Retrieving Source-Asserted hierarchy}
 \usage{
-hierarchyfromSource(TGT, vocabulary, Id, type = "descendants")
+hierarchyfromSource(vocabulary, Id, type = "descendants")
 }
 \arguments{
-\item{TGT}{UMLS ticket-grant ticket}
-
 \item{vocabulary}{Any root source abbreviation in the UMLS. See the “Abbreviation” column for a list of UMLS source vocabulary abbreviations.}
 
 \item{Id}{Source-asserted identifier.}

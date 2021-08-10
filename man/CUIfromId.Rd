@@ -4,11 +4,9 @@
 \alias{CUIfromId}
 \title{Retrieving UMLS Concept Unique Identifier (source-asserted Id)}
 \usage{
-CUIfromId(TGT, Id, vocabulary)
+CUIfromId(Id, vocabulary)
 }
 \arguments{
-\item{TGT}{UMLS ticket-grant ticket.}
-
 \item{Id}{Source-asserted identifier.}
 
 \item{vocabulary}{Any root source abbreviation in the UMLS. See the “Abbreviation” column for a list of UMLS source vocabulary abbreviations.}

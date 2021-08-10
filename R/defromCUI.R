@@ -2,13 +2,13 @@
 #' @description
 #' This function help to retrieve the source-asserted definitions for a known CUI.
 #'
-#' @param TGT UMLS ticket-grant ticket.
 #' @param CUI UMLS Concept Unique Identifier.
 #'
 #' @return A data frame.
 #' @importFrom dplyr tibble
 #' @export
-defromCUI <- function(TGT, CUI) {
+defromCUI <- function(CUI) {
+  TGT <- getumls_env$TGT
   ST <- .service_pass(TGT)
   .checkST(ST)
   .checkCUI(CUI)

@@ -2,13 +2,13 @@
 #' @description
 #' This function help to retrieve a UMLS Concept Unique Identifier (**CUI**) associate with a specific source-asserted identifier (**code**).
 #'
-#' @param TGT UMLS ticket-grant ticket.
 #' @param Id Source-asserted identifier.
 #' @param vocabulary Any root source abbreviation in the UMLS. See the “Abbreviation” column for a list of UMLS source vocabulary abbreviations.
 #' @return A UMLS Concept Unique Identifier (CUI).
 #' @export
-CUIfromId <- function(TGT, Id, vocabulary) {
+CUIfromId <- function(Id, vocabulary) {
   .checkVocabulary(vocabulary)
+  TGT <- getumls_env$TGT
   ST <- .service_pass(TGT)
   .checkST(ST)
 

@@ -2,7 +2,6 @@
 #' @description
 #' This function provides you a way to retrieve a hierarchical information about a known source-asserted identifier.
 #'
-#' @param TGT UMLS ticket-grant ticket
 #' @param vocabulary Any root source abbreviation in the UMLS. See the “Abbreviation” column for a list of UMLS source vocabulary abbreviations.
 #' @param Id Source-asserted identifier.
 #' @param type The type of hierarchy e.g. "parents", "children", "ancestors" or "descendants". By default, it is "descendants".
@@ -10,9 +9,10 @@
 #' @return A data frame
 #' @importFrom dplyr tibble
 #' @export
-hierarchyfromSource <- function(TGT, vocabulary, Id, type = "descendants") {
+hierarchyfromSource <- function(vocabulary, Id, type = "descendants") {
   .checkVocabulary(vocabulary)
   .checkType(type)
+  TGT <- getumls_env$TGT
   ST <- .service_pass(TGT)
   .checkST(ST)
 

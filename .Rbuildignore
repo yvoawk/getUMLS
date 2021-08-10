@@ -1,2 +1,7 @@
-^.*\.Rproj$
+^getUMLS\.Rproj$
 ^\.Rproj\.user$
+^LICENSE\.md$
+^history\.R$
+^\./inst/key$
+^doc$
+^Meta$

@@ -4,11 +4,9 @@
 \alias{CUIfromString}
 \title{Retrieving UMLS Concept Unique Identifier}
 \usage{
-CUIfromString(TGT, String, ENG = TRUE)
+CUIfromString(String, ENG = TRUE)
 }
 \arguments{
-\item{TGT}{UMLS ticket-grant ticket.}
-
 \item{String}{The search term.}
 
 \item{ENG}{The default is TRUE. We recommend put it to FALSE when the search term is not in English.}
