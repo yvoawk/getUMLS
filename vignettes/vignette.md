@@ -10,12 +10,13 @@ For use this package, you will need an <span style="color: red">UMLS license</sp
 ## 1. Authentication : UMLS TICKET-GRANT TICKET
 
 First, you need to authentify yourself in order to have access to UMLS
-REST API. This function help you to do that and obtain a Ticket-Grant
-Ticket (TGT). It receives in argument the **apikey** received by UMLS. The TGT is valid for **8 hours**. You do not need a new TGT for each REST API call.
+REST API. This function help you to do that. It receives in argument the **apikey** received by UMLS. The TGT is valid for **8 hours**. You do not need a new TGT for each REST API call.
 
 ``` r
 TGT <- getUMLS::umls_pass(apikey = YOUR_API_KEY)
 ```
+
+     Authentication was successful. This gives you access for 8 hours.
 
 ## 2. Retrieves information about a known CUI
 
@@ -24,7 +25,7 @@ types, number of atoms, etc) for a known CUI from latest UMLS version.
 It receives in argument the **TGT** and a **CUI**.
 
 ``` r
-getUMLS::fromCUI(TGT = TGT, CUI = "C0018689")
+getUMLS::fromCUI(CUI = "C0018689")
 ```
 
     ## # A tibble: 1 x 6
@@ -41,7 +42,7 @@ size (optional). You can consult the allowed vocabularies on:
 [vocabulary](https://www.nlm.nih.gov/research/umls/sourcereleasedocs/index.html).
 
 ``` r
-getUMLS::atomsfromCUI(TGT = TGT, CUI = "C0018689")
+getUMLS::atomsfromCUI(CUI = "C0018689")
 ```
 
     ##                          name termType rootSource      id
@@ -54,7 +55,7 @@ definitions for a known CUI. It receives in argument the **TGT** and a
 **CUI**.
 
 ``` r
-getUMLS::defromCUI(TGT = TGT, CUI = "C0155502")
+getUMLS::defromCUI(CUI = "C0155502")
 ```
 
     ##    classType sourceOriginated rootSource
@@ -73,7 +74,7 @@ relationships for a known CUI. It receives in argument the **TGT**, a
 **CUI** and the page size (optional).
 
 ``` r
-getUMLS::relfromCUI(TGT = TGT, CUI = "C0155502")
+getUMLS::relfromCUI(CUI = "C0155502")
 ```
 
     ##         id                                                relatedIdName
@@ -104,7 +105,7 @@ vocabularies on:
 [vocabulary](https://www.nlm.nih.gov/research/umls/sourcereleasedocs/index.html).
 
 ``` r
-getUMLS::IdfromString(TGT = TGT, String = "bone fracture", vocabulary = "MSH")
+getUMLS::IdfromString(String = "bone fracture", vocabulary = "MSH")
 ```
 
     ## [1] "D050723"
@@ -115,7 +116,7 @@ This function provides you a way to retrieve a UMLS Concept Unique
 Identifier (**CUI**) associate with a search term (**string**).
 
 ``` r
-getUMLS::CUIfromString(TGT = TGT, String = "bone fracture")
+getUMLS::CUIfromString(String = "bone fracture")
 ```
 
     ## [1] "C0016658"
@@ -130,7 +131,7 @@ vocabulary). You can consult the allowed vocabularies on:
 [vocabulary](https://www.nlm.nih.gov/research/umls/sourcereleasedocs/index.html).
 
 ``` r
-getUMLS::CUIfromId(TGT = TGT, Id = "J45", vocabulary = "ICD10")
+getUMLS::CUIfromId(Id = "J45", vocabulary = "ICD10")
 ```
 
     ## [1] "C0004096"
@@ -144,7 +145,7 @@ about a known source-asserted identifier. You can :
 * Retrieve all ancestors or descendants of a known source asserted identifier.
 
 ``` r
-getUMLS::hierarchyfromSource(TGT = TGT, vocabulary = "ICD10", Id = "J45", type = "children")
+getUMLS::hierarchyfromSource(vocabulary = "ICD10", Id = "J45", type = "children")
 ```
 
     ## result                                            
