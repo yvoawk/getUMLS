@@ -6,8 +6,9 @@
 Rpackage to query the UMLS metathesaurus by using the UMLS REST API.
 
 ## Installation
+To install the package, run:
 ```r
 # install.packages("devtools")
 devtools::install_github("yvoawk/getUMLS")
 ```
-You will found the guide to use this package in the vignettes folder : [vignette](https://github.com/yvoawk/getUMLS/blob/master/vignettes/vignette.md).
+You will found the guide to use this package in the vignettes folder : [guide](https://github.com/yvoawk/getUMLS/blob/master/vignettes/vignette.md).
