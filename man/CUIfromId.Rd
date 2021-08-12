@@ -13,6 +13,8 @@ CUIfromId(Id, vocabulary)
 }
 \value{
 A UMLS Concept Unique Identifier (CUI).
+#' @examples
+\dontrun{cui <- CUIfromId(Id = "J45", vocabulary = "ICD10")}
 }
 \description{
 This function help to retrieve a UMLS Concept Unique Identifier (\strong{CUI}) associate with a specific source-asserted identifier (\strong{code}).

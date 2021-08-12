@@ -13,6 +13,8 @@ CUIfromString(String, ENG = TRUE)
 }
 \value{
 A UMLS Concept Unique Identifier (CUI).
+#' @examples
+\dontrun{cui <- CUIfromString(String = "bone fracture")}
 }
 \description{
 This function help to retrieve a UMLS Concept Unique Identifier (CUI) associate with a search term (string).

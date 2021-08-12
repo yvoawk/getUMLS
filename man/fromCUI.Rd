@@ -11,6 +11,8 @@ fromCUI(CUI)
 }
 \value{
 a data frame
+#' @examples
+\dontrun{x <- fromCUI(CUI = "C0018689")}
 }
 \description{
 This function retrieves information about a known CUI.

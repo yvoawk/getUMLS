@@ -12,3 +12,6 @@ umls_pass(apikey)
 \description{
 Function to get UMLS Ticket-Grant Ticket.
 }
+\examples{
+\dontrun{umls_pass(apikey = "your apikey")}
+}

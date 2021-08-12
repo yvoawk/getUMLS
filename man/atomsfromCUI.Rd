@@ -23,3 +23,6 @@ A data frame.
 \description{
 This function help to retrieve atoms and information about atoms for a known CUI.
 }
+\examples{
+\dontrun{atom <- atomsfromCUI(CUI = "C0018689")}
+}

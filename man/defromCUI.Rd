@@ -11,6 +11,8 @@ defromCUI(CUI)
 }
 \value{
 A data frame.
+#' @examples
+\dontrun{defintion <- defromUI(CUI = "C0155502")}
 }
 \description{
 This function help to retrieve the source-asserted definitions for a known CUI.

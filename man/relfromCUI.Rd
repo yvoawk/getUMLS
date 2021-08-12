@@ -13,6 +13,8 @@ relfromCUI(CUI, pageSize = NULL)
 }
 \value{
 A data frame
+#' @examples
+\dontrun{relation <- relfromCUI(CUI = "C0155502")}
 }
 \description{
 This function help to retrieve the NLM-asserted relationships for a known CUI.

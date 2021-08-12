@@ -15,6 +15,8 @@ hierarchyfromSource(vocabulary, Id, type = "descendants")
 }
 \value{
 A data frame
+#' @examples
+\dontrun{hierarchy <- hierarchyfromSource(vocabulary = "ICD10", Id = "J45", type = "children")}
 }
 \description{
 This function provides you a way to retrieve a hierarchical information about a known source-asserted identifier.

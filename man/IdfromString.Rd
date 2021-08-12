@@ -16,6 +16,8 @@ Currently searching for one source vocabulary at the time.}
 }
 \value{
 A source-asserted identifier (codes).
+#' @examples
+\dontrun{Id <- IdfromString(String = "bone fracture", vocabulary = "MSH")}
 }
 \description{
 This function help to retrieve a source-asserted identifiers (codes) associate with a search term (string) in UMLS specific source vocabulary.
