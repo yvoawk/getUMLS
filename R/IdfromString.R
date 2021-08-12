@@ -19,9 +19,7 @@ IdfromString <- function(String, vocabulary, ENG = TRUE) {
   } else {
     lang <- "exact"
   }
-  TGT <- getumls_env$TGT
-  ST <- .service_pass(TGT)
-
+  ST <- .service_pass(getumls_env$TGT)
   url <- "https://uts-ws.nlm.nih.gov/rest/search/current"
   query <-
     list(

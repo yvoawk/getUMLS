@@ -9,11 +9,10 @@
 #' #' @examples
 #' \dontrun{relation <- relfromCUI(CUI = "C0155502")}
 #' @importFrom magrittr %<>%
-#' @importFrom dplyr tibble select
+#' @importFrom dplyr select
 #' @export
 relfromCUI <- function(CUI, pageSize = NULL) {
-  TGT <- getumls_env$TGT
-  ST <- .service_pass(TGT)
+  ST <- .service_pass(getumls_env$TGT)
   .checkCUI(CUI)
   query <- list("ticket" = ST)
 
@@ -26,7 +25,7 @@ relfromCUI <- function(CUI, pageSize = NULL) {
   response <- getUMLS(url, query)
 
   if (is.null(response)) {
-    response <- dplyr::tibble(
+    response <- data.frame(
       name = NA,
       termType = NA,
       rootSource = NA,

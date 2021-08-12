@@ -9,22 +9,19 @@
 #' @return A data frame
 #' #' @examples
 #' \dontrun{hierarchy <- hierarchyfromSource(vocabulary = "ICD10", Id = "J45", type = "children")}
-#' @importFrom dplyr tibble
 #' @export
 hierarchyfromSource <- function(vocabulary, Id, type = "descendants") {
   .checkVocabulary(vocabulary)
   .checkType(type)
-  TGT <- getumls_env$TGT
-  ST <- .service_pass(TGT)
-
+  ST <- .service_pass(getumls_env$TGT)
   url <- paste0("https://uts-ws.nlm.nih.gov/rest/content/current/source/", vocabulary, "/", Id, "/", type)
   query <- list("ticket" = ST)
   response <- getUMLS(url, query)
 
   if (isTRUE(response)) {
-    response <- dplyr::tibble(result = NA)
+    response <- list(result = NA)
   } else {
-    response <- dplyr::tibble(result = response$name)
+    response <- list(result = response$name)
   }
   return(response)
 }

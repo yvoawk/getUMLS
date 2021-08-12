@@ -13,11 +13,10 @@
 #' @examples
 #' \dontrun{atom <- atomsfromCUI(CUI = "C0018689")}
 #' @importFrom magrittr %<>%
-#' @importFrom dplyr select tibble
+#' @importFrom dplyr select
 #' @export
 atomsfromCUI <- function(CUI, vocabulary = NULL, language = NULL, pageSize = NULL) {
-  TGT <- getumls_env$TGT
-  ST <- .service_pass(TGT)
+  ST <- .service_pass(getumls_env$TGT)
   query <- list("ticket" = ST)
   .checkCUI(CUI)
 
@@ -40,7 +39,7 @@ atomsfromCUI <- function(CUI, vocabulary = NULL, language = NULL, pageSize = NUL
   response <- getUMLS(url, query)
 
   if (is.null(response)) {
-    response <- dplyr::tibble(
+    response <- data.frame(
       name = NA,
       termType = NA,
       rootSource = NA,

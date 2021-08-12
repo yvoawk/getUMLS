@@ -10,8 +10,7 @@
 #' @export
 CUIfromId <- function(Id, vocabulary) {
   .checkVocabulary(vocabulary)
-  TGT <- getumls_env$TGT
-  ST <- .service_pass(TGT)
+  ST <- .service_pass(getumls_env$TGT)
 
   url <- "https://uts-ws.nlm.nih.gov/rest/search/current"
   query <-
@@ -22,7 +21,6 @@ CUIfromId <- function(Id, vocabulary) {
       "inputType" = "sourceUi",
       "searchType" = "exact"
     )
-
   response <- getUMLS2(url, query)
 
   if (response == "NONE") {

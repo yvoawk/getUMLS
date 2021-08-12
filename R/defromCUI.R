@@ -7,19 +7,16 @@
 #' @return A data frame.
 #' #' @examples
 #' \dontrun{defintion <- defromUI(CUI = "C0155502")}
-#' @importFrom dplyr tibble
 #' @export
 defromCUI <- function(CUI) {
-  TGT <- getumls_env$TGT
-  ST <- .service_pass(TGT)
+  ST <- .service_pass(getumls_env$TGT)
   .checkCUI(CUI)
   query <- list("ticket" = ST)
-
   url <- paste0("https://uts-ws.nlm.nih.gov/rest/content/current/CUI/", CUI, "/definitions")
   response <- getUMLS(url, query)
 
   if (is.null(response)) {
-    response <- dplyr::tibble(
+    response <- data.frame(
       classType = NA,
       sourceOriginated = NA,
       rootSource = NA,
