@@ -22,7 +22,7 @@ getUMLS::umls_pass(apikey = YOUR_API_KEY)
 
 This function provides you a way to retrieve information (name, semantic
 types, number of atoms, etc) for a known CUI from latest UMLS version.
-It receives in argument the **TGT** and a **CUI**.
+It receives as argument a **CUI**.
 
 ``` r
 getUMLS::fromCUI(CUI = "C0018689")
@@ -36,7 +36,7 @@ getUMLS::fromCUI(CUI = "C0018689")
 ## 3. Atoms et Information
 
 This function provides you a way to retrieve atoms and information about
-atoms for a known CUI. It receives in argument the **TGT**, a **CUI**, a
+atoms for a known CUI. It receives as argument a **CUI**, a
 UMLS sources vocabularies (optional), a language (optional) and the page
 size (optional). You can consult the allowed vocabularies on:
 [vocabulary](https://www.nlm.nih.gov/research/umls/sourcereleasedocs/index.html).
@@ -51,7 +51,7 @@ getUMLS::atomsfromCUI(CUI = "C0018689")
 ## 4. CUI Definition
 
 This function provides you a way to retrieve the source-asserted
-definitions for a known CUI. It receives in argument the **TGT** and a
+definitions for a known CUI. It receives as argument a
 **CUI**.
 
 ``` r
@@ -70,8 +70,8 @@ getUMLS::defromCUI(CUI = "C0155502")
 ## 5. CUI Relation
 
 This function provides you a way to retrieve the NLM-asserted
-relationships for a known CUI. It receives in argument the **TGT**, a
-**CUI** and the page size (optional).
+relationships for a known CUI. It receives as argument a
+**CUI** and the pageSize (optional).
 
 ``` r
 getUMLS::relfromCUI(CUI = "C0155502")
@@ -125,7 +125,7 @@ getUMLS::CUIfromString(String = "bone fracture")
 
 This function provides you a way to retrieve a UMLS Concept Unique
 Identifier (**CUI**) associate with a specific source-asserted
-identifier (**code**). It receives in argument the **TGT**, a **id**
+identifier (**code**). It receives as argument a **Id**
 (source-asserted identifier) and a **vocabulary** abbreviation (source
 vocabulary). You can consult the allowed vocabularies on:
 [vocabulary](https://www.nlm.nih.gov/research/umls/sourcereleasedocs/index.html).
