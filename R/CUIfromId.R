@@ -22,11 +22,6 @@ CUIfromId <- function(Id, vocabulary) {
       "searchType" = "exact"
     )
   response <- getUMLS2(url, query)
-
-  if (response == "NONE") {
-    response <- NA
-  } else {
-    response
-  }
+  response <- ifelse(response == "NONE", NA, response)
   return(response)
 }

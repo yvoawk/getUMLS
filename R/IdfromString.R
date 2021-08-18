@@ -30,11 +30,6 @@ IdfromString <- function(String, vocabulary, ENG = TRUE) {
       "searchType" = lang
     )
   response <- getUMLS2(url, query)
-
-  if (response == "NONE") {
-    response <- NA
-  } else {
-    response
-  }
+  response <- ifelse(response == "NONE", NA, response)
   return(response)
 }
