@@ -11,6 +11,7 @@
 #' @export
 CUIfromString <- function(String, ENG = TRUE) {
   .checkString(String)
+  .checkENG(ENG)
   if (isTRUE(ENG)) {
     lang <- "normalizedString"
   } else {

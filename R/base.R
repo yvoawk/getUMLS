@@ -1,28 +1,29 @@
+
+#' @export
+.apikey <- function() key
+
 #' @importFrom stringr str_detect
 .checkApikey <- function(apikey) {
   if (!is.character(apikey) ||
     !stringr::str_detect(
       apikey,
       "[:alnum:]+[-][0-9]+[-][0-9]+[-][:alnum:]+[-][:alnum:]+"
-    )) {
+    ))
     stop("api key is not valid")
-  }
 }
 
 #' @importFrom stringr str_detect
 .checkTGT <- function(TGT) {
-  if (stringr::str_detect(TGT, "^TGT[-]\\d+[-][:alnum:]+[-]cas$")) {
+  if (stringr::str_detect(TGT, "^TGT[-]\\d+[-][:alnum:]+[-]cas$"))
     message("Authentication was successful. This gives you access for 8 hours")
-  } else {
+   else
     stop("Authentication failed")
-  }
 }
 
 #' @importFrom stringr str_detect
 .checkST <- function(ST) {
-  if (!stringr::str_detect(ST, "^ST[-]\\d+[-][:alnum:]+[-]cas$")) {
+  if (!stringr::str_detect(ST, "^ST[-]\\d+[-][:alnum:]+[-]cas$"))
     stop("Your session has expired. Please get another session with the umls_pass function")
-  }
 }
 
 #' @importFrom stringr str_detect
@@ -31,43 +32,42 @@
     !stringr::str_detect(
       CUI,
       "C[:alnum:]{7}"
-    )) {
+    ))
     stop("CUI is not valid")
-  }
 }
 
 #' @importFrom utils read.delim2
 .checkVocabulary <- function(vocabulary) {
   if (!is.character(vocabulary) ||
-    !vocabulary %in% vocab) {
+    !vocabulary %in% vocab)
     stop("vocabulary must be a character or vocabulary is not valid")
-  }
 }
 
 .checkLanguage <- function(language) {
   if (!is.character(language) ||
-    !language %in% c("ENG", "FRE")) {
+    !language %in% c("ENG", "FRE"))
     stop("language must be a character or language is not valid")
-  }
 }
 
 .checkpageSize <- function(pageSize) {
-  if (!is.numeric(pageSize)) {
+  if (!is.numeric(pageSize))
     stop("pageSize must be a numeric")
-  }
+}
+
+.checkENG <- function(ENG) {
+  if (!is.logical(ENG))
+    stop("ENG must be TRUE or FALSE")
 }
 
 .checkString <- function(String) {
-  if (!is.character(String)) {
+  if (!is.character(String))
     stop("String must be a character")
-  }
 }
 
 .checkType <- function(type) {
   if (!is.character(type) &&
-    !type %in% c("ancestors", "descendants", "parents", "children")) {
+    !type %in% c("ancestors", "descendants", "parents", "children"))
     stop("type must be a character or type is not valid")
-  }
 }
 
 #' @importFrom httr POST
@@ -82,6 +82,18 @@
   ST <- rawToChar(query$content)
   .checkST(ST)
   return(ST)
+}
+
+#' @export
+#' @importFrom rvest read_html html_nodes html_table
+.loadVocabulary <- function() {
+  url <- "https://www.nlm.nih.gov/research/umls/sourcereleasedocs/index.html"
+  umls <- rvest::read_html(url)
+  table <- umls %>%
+    rvest::html_nodes(xpath = '//*[@id="example"]') %>%
+    rvest::html_table() %>%
+    .[[1]]
+  return(table)
 }
 
 .detect <- function(String) {
