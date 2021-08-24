@@ -1,7 +1,4 @@
 
-#' @export
-.apikey <- function() key
-
 #' @importFrom stringr str_detect
 .checkApikey <- function(apikey) {
   if (!is.character(apikey) ||
@@ -82,18 +79,6 @@
   ST <- rawToChar(query$content)
   .checkST(ST)
   return(ST)
-}
-
-#' @export
-#' @importFrom rvest read_html html_nodes html_table
-.loadVocabulary <- function() {
-  url <- "https://www.nlm.nih.gov/research/umls/sourcereleasedocs/index.html"
-  umls <- rvest::read_html(url)
-  table <- umls %>%
-    rvest::html_nodes(xpath = '//*[@id="example"]') %>%
-    rvest::html_table() %>%
-    .[[1]]
-  return(table)
 }
 
 .detect <- function(String) {
