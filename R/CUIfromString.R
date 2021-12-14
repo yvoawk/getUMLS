@@ -12,14 +12,12 @@
 CUIfromString <- function(String, ENG = TRUE) {
   .checkString(String)
   .checkENG(ENG)
-  
   if(ENG){
       lang = "normalizedString"
     }else{
       lang = "exact"
     }
   ST <- .service_pass(getumls_env$TGT)
-
   url <- "https://uts-ws.nlm.nih.gov/rest/search/current"
   query <-
     list(
