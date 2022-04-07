@@ -40,6 +40,7 @@ atomsfromCUI <- function(CUI, vocabulary = NULL, language = NULL, pageSize = NUL
 
   if (is.null(response)) {
     response <- data.frame(
+      aui = NA,
       name = NA,
       termType = NA,
       rootSource = NA,
@@ -54,7 +55,7 @@ atomsfromCUI <- function(CUI, vocabulary = NULL, language = NULL, pageSize = NUL
           substr(x, y[1] + 1, y[2])
         }
       )
-    response %<>% dplyr::select(name, termType, rootSource, id)
+    response %<>% dplyr::rename(aui = ui) %>% dplyr::select(aui, name, termType, rootSource, id)
   }
   return(response)
 }
