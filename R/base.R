@@ -89,7 +89,7 @@
   return(c(vec1, vec2))
 }
 
-#' @importFrom httr GET
+#' @importFrom httr GET content
 #' @importFrom jsonlite fromJSON
 #' @importFrom magrittr %>%
 getUMLS <- function(url, query) {
@@ -98,7 +98,7 @@ getUMLS <- function(url, query) {
   return(response)
 }
 
-#' @importFrom httr GET
+#' @importFrom httr GET content
 #' @importFrom jsonlite fromJSON
 #' @importFrom magrittr %>% %$%
 getUMLS2 <- function(url, query) {
