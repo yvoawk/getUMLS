@@ -93,7 +93,7 @@
 #' @importFrom jsonlite fromJSON
 #' @importFrom magrittr %>%
 getUMLS <- function(url, query) {
-  get <- httr::GET(url = url, query = query, encode = "json")
+  get <- httr::GET(url = url, query = query)
   response <- rawToChar(get$content) %>% jsonlite::fromJSON() %>% .[["result"]]
   return(response)
 }
@@ -102,7 +102,7 @@ getUMLS <- function(url, query) {
 #' @importFrom jsonlite fromJSON
 #' @importFrom magrittr %>% %$%
 getUMLS2 <- function(url, query) {
-  get <- httr::GET(url = url, query = query, encode = "json")
+  get <- httr::GET(url = url, query = query)
   response <- rawToChar(get$content) %>% jsonlite::fromJSON() %$% .$result$results$ui
   return(response)
 }
