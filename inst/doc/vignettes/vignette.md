@@ -35,14 +35,19 @@ getUMLS::fromCUI(CUI = "C0018689")
 
 ## 3. Atoms et Information
 
-This function provides you a way to retrieve atoms and information about
+The first function provides you a way to retrieve atoms and information about
 atoms for a known CUI. It receives as argument a **CUI**, a
 UMLS sources vocabularies (optional), a language (optional) and the page
 size (optional). You can consult the allowed vocabularies on:
 [vocabulary](https://www.nlm.nih.gov/research/umls/sourcereleasedocs/index.html).
 
+The second function provides you a way to retrieve information about
+atoms for a known AUI. It receives as argument a **AUI**.
+
 ``` r
 getUMLS::atomsfromCUI(CUI = "C0018689")
+
+getUMLS::CUIfromAtoms(AUI = "A8345234")
 ```
 
     ##                          name termType rootSource      id
