@@ -109,4 +109,4 @@ getUMLS2 <- function(url, query) {
 
 getumls_env <- new.env(parent = emptyenv())
 
-utils::globalVariables(c(".", "id", "ui", "relatedIdName", "rootSource", "name", "termType"))
+utils::globalVariables(c(".", "id", "CUI", "ui", "relatedIdName", "rootSource", "name", "termType"))
