@@ -1,6 +1,6 @@
 Package: getUMLS
 Title: Query the UMLS metathesaurus
-Version: 0.2.0
+Version: 1.0.1
 Date: 2021-08-06
 Authors@R: 
     person(given = "Yvon K.",
