@@ -12,9 +12,9 @@
 #' @importFrom dplyr select
 #' @export
 relfromCUI <- function(CUI, pageSize = NULL) {
-  ST <- .service_pass(getumls_env$TGT)
+  apikey <- getumls_env$KEY
+  query <- list("apiKey" = apikey)
   .checkCUI(CUI)
-  query <- list("ticket" = ST)
 
   if (!is.null(pageSize)) {
     .checkpageSize(pageSize)

@@ -14,12 +14,16 @@
 IdfromString <- function(String, vocabulary, ENG = TRUE) {
   .checkString(String)
   .checkVocabulary(vocabulary)
-lang <- ifelse(ENG, "normalizedString", "exact")
-  ST <- .service_pass(getumls_env$TGT)
+  if (isTRUE(ENG)) {
+    lang <- "normalizedString"
+  } else {
+    lang <- "exact"
+  }
+  apikey <- getumls_env$KEY
   url <- "https://uts-ws.nlm.nih.gov/rest/search/current"
   query <-
     list(
-      "ticket" = ST,
+      "apiKey" = apikey,
       "string" = String,
       "sabs" = vocabulary,
       "returnIdType" = "code",

@@ -1,26 +1,11 @@
-
 #' @importFrom stringr str_detect
 .checkApikey <- function(apikey) {
   if (!is.character(apikey) ||
     !stringr::str_detect(
       apikey,
-      "^[:alnum:]{8}-[:alnum:]{4}-[:alnum:]{4}-[:alnum:]{4}-[:alnum:]{12}$"
+      "[:alnum:]+[-][0-9]+[-][0-9]+[-][:alnum:]+[-][:alnum:]+"
     ))
     stop("api key is not valid")
-}
-
-#' @importFrom stringr str_detect
-.checkTGT <- function(TGT) {
-  if (stringr::str_detect(TGT, "^TGT[-]\\d+[-][:alnum:]+[-]cas$"))
-    message("Authentication was successful. This gives you access for 8 hours")
-   else
-    stop("Authentication failed")
-}
-
-#' @importFrom stringr str_detect
-.checkST <- function(ST) {
-  if (!stringr::str_detect(ST, "^ST[-]\\d+[-][:alnum:]+[-]cas$"))
-    stop("Your session has expired. Please get another session with the umls_pass function")
 }
 
 #' @importFrom stringr str_detect
@@ -31,6 +16,16 @@
       "C[:alnum:]{7}"
     ))
     stop("CUI is not valid")
+}
+
+#' @importFrom stringr str_detect
+.checkAUI <- function(AUI) {
+  if (!is.character(AUI) ||
+      !stringr::str_detect(
+        AUI,
+        "A[:alnum:]{7}"
+      ))
+    stop("AUI is not valid")
 }
 
 #' @importFrom utils read.delim2
@@ -67,18 +62,9 @@
     stop("type must be a character or type is not valid")
 }
 
-#' @importFrom httr POST
-.service_pass <- function(TGT) {
-  url <- paste0("https://utslogin.nlm.nih.gov/cas/v1/tickets/", TGT)
-  query <-
-    httr::POST(
-      url = url,
-      body = list("service" = "http://umlsks.nlm.nih.gov"),
-      encode = "form"
-    )
-  ST <- rawToChar(query$content)
-  .checkST(ST)
-  return(ST)
+.checkUsername <- function(username) {
+  if (!is.character(username))
+    stop("username must be a character")
 }
 
 .detect <- function(String) {
@@ -109,4 +95,4 @@ getUMLS2 <- function(url, query) {
 
 getumls_env <- new.env(parent = emptyenv())
 
-utils::globalVariables(c(".", "id", "CUI", "ui", "relatedIdName", "rootSource", "name", "termType"))
+utils::globalVariables(c(".", "id", "ui", "CUI", "relatedIdName", "rootSource", "name", "termType"))

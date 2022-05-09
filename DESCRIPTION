@@ -1,7 +1,7 @@
 Package: getUMLS
 Title: Query the UMLS metathesaurus
 Version: 0.2.0
-Date: 2021-08-08
+Date: 2021-08-06
 Authors@R: 
     person(given = "Yvon K.",
            family = "AWUKLU",
@@ -14,7 +14,7 @@ License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.1.1
+RoxygenNote: 7.1.2
 Suggests: 
     knitr,
     rmarkdown
@@ -24,6 +24,8 @@ Imports:
     dplyr,
     httr,
     stringr,
-    jsonlite
+    jsonlite,
+    rvest,
+    getPass
 Depends: 
-    R (>= 3.1.0)
+    R (>= 2.10)

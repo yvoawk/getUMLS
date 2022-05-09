@@ -13,8 +13,8 @@
 #' @importFrom dplyr select
 #' @export
 CUIfromAtoms <- function(AUI) {
-  ST <- .service_pass(getumls_env$TGT)
-  query <- list("ticket" = ST)
+  apikey <- getumls_env$KEY
+  query <- list("apiKey" = apikey)
   .checkAUI(AUI)
 
   url <- paste0("https://uts-ws.nlm.nih.gov/rest/content/current/AUI/", AUI)

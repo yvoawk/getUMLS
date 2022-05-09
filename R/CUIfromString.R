@@ -12,12 +12,17 @@
 CUIfromString <- function(String, ENG = TRUE) {
   .checkString(String)
   .checkENG(ENG)
-  lang <- ifelse(ENG, "normalizedString", "exact")
-  ST <- .service_pass(getumls_env$TGT)
+  if (isTRUE(ENG)) {
+    lang <- "normalizedString"
+  } else {
+    lang <- "exact"
+  }
+  apikey <- getumls_env$KEY
+
   url <- "https://uts-ws.nlm.nih.gov/rest/search/current"
   query <-
     list(
-      "ticket" = ST,
+      "apiKey" = apikey,
       "string" = String,
       "searchType" = lang
     )

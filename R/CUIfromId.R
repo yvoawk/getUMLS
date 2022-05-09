@@ -10,12 +10,12 @@
 #' @export
 CUIfromId <- function(Id, vocabulary) {
   .checkVocabulary(vocabulary)
-  ST <- .service_pass(getumls_env$TGT)
+  apikey <- getumls_env$KEY
 
   url <- "https://uts-ws.nlm.nih.gov/rest/search/current"
   query <-
     list(
-      "ticket" = ST,
+      "apiKey" = apikey,
       "string" = Id,
       "sabs" = vocabulary,
       "inputType" = "sourceUi",

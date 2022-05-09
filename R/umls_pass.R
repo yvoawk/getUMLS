@@ -1,23 +1,10 @@
-#' @title Obtain TGT
-#' @description Function to get UMLS Ticket-Grant Ticket.
+#' @title Obtain access to UMLS API
+#' @description Function to register your apikey.
 #'
-#' @param apikey apikey gives by UMLS
-#' @importFrom magrittr %>%
-#' @importFrom httr POST
-#' @importFrom stringr str_extract
-#' @examples
-#' \dontrun{umls_pass(apikey = "your apikey")}
 #' @export
-umls_pass <- function(apikey) {
+umls_pass <- function() {
+  apikey <- getPass::getPass("Paste or enter your apiKey")
   .checkApikey(apikey)
-  url <- "https://utslogin.nlm.nih.gov/cas/v1/api-key"
-  query <-
-    httr::POST(
-      url = url,
-      body = list("apikey" = apikey),
-      encode = "form"
-    )
-  TGT <- query$headers$location %>% stringr::str_extract("TGT.*")
-  .checkTGT(TGT)
-  getumls_env$TGT <- TGT
+  getumls_env$KEY <- apikey
+  message("Access granted.")
 }

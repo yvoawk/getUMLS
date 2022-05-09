@@ -11,8 +11,8 @@
 #' @export
 fromCUI <- function(CUI) {
   .checkCUI(CUI)
-  ST <- .service_pass(getumls_env$TGT)
-  query <- list("ticket" = ST)
+  apikey <- getumls_env$KEY
+  query <- list("apiKey" = apikey)
   url <- paste0("https://uts-ws.nlm.nih.gov/rest/content/current/CUI/", CUI)
   response <- getUMLS(url, query)
 

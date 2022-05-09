@@ -12,10 +12,9 @@
 #' @export
 hierarchyfromSource <- function(vocabulary, Id, type = "descendants") {
   .checkVocabulary(vocabulary)
-  .checkType(type)
-  ST <- .service_pass(getumls_env$TGT)
+  apikey <- getumls_env$KEY
+  query <- list("apiKey" = apikey)
   url <- paste0("https://uts-ws.nlm.nih.gov/rest/content/current/source/", vocabulary, "/", Id, "/", type)
-  query <- list("ticket" = ST)
   response <- getUMLS(url, query)
 
   if (isTRUE(response)) {
