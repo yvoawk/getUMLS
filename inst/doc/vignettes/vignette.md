@@ -10,13 +10,13 @@ For use this package, you will need an <span style="color: red">UMLS license</sp
 ## 1. Authentication : UMLS TICKET-GRANT TICKET
 
 First, you need to authentify yourself in order to have access to UMLS
-REST API. This function help you to do that. It receives in argument the **apikey** received by UMLS. The TGT is valid for **8 hours**.
+REST API. This function help you to do that. It receives in argument the **apikey** received by UMLS.
 
 ``` r
-getUMLS::umls_pass(apikey = YOUR_API_KEY)
+getUMLS::umls_pass()
 ```
 
-     Authentication was successful. This gives you access for 8 hours.
+     Access granted.
 
 ## 2. Retrieves information about a known CUI
 
