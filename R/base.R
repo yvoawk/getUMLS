@@ -3,7 +3,7 @@
   if (!is.character(apikey) ||
     !stringr::str_detect(
       apikey,
-      "[:alnum:]+[-][:alnum:]+[-][0-9]+[-][:alnum:]+[-][:alnum:]+"
+      "[:alnum:]+[-].+[-][0-9]+[-][:alnum:]+[-][:alnum:]+"
     ))
     stop("api key is not valid")
 }
